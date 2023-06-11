@@ -1,0 +1,15 @@
+Condition1 : weight added to the fiber optic directly.
+Condition2 : weight attached to the silicone strip where the FO is embedded. 
+
+
+
+Time and date of each experiment: 
+
+-01_Peak_2023_06_02_Condition1
+				Date: 6/2/2023 11:05:58.44675
+
+-02_Peaks_2023_06_02_condition1
+				Date: 6/2/2023 13:01:25.04072
+
+-02_Peaks_2023_06_02_condition1
+				Date: 6/2/2023 12:55:48.00201
