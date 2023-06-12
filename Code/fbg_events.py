@@ -3,15 +3,17 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
 #data paths for saving  openning writting
-relative_path = os.path.join('..', 'data','raw', '01_Peak_2023_06_02_Condition1.txt')
-file_path = os.path.join('..', 'data','treated_data','event1.xlsx')
+relative_path = os.path.join('..', 'data','raw','03_Peaks_2023_06_02_condition2.txt')
+
+#just change the file name 
+file_path = os.path.join('..', 'data','treated_data','C2_Event_3.xlsx')
 
 #dataframe creation
 df = pd.read_csv(relative_path, index_col=0, delimiter="\t", parse_dates=(True))
 
 #dataframe formating time
 
-data_time = '2023-06-02 11:05:59.138370'
+data_time = '2023-06-02 12:25:06.30507'
 
 df['Time'] = df.index
 Fix = df.loc[pd.Timestamp(data_time), 'Time']
@@ -20,7 +22,9 @@ df['Time'] = df['Time'] - Fix
 df['seconds'] = df['Time'].dt.total_seconds()
 
 i = 0
-ts = 95
+#Seconds where the events happen
+lowerbound= 800
+upperbound= 970
 
 event={}
 e = []
@@ -36,7 +40,7 @@ while i <= 5:
     
     print(event)
     for x, l in zip(df['seconds'], df[L]):
-        if x <= ts:
+        if lowerbound<= x <= upperbound:
             event[L].append(l)
             event['Time'].append(x)
             
